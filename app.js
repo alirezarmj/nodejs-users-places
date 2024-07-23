@@ -10,7 +10,7 @@ const AppError = require("./utils/appError");
 const usersRoutes = require("./routes/users-routes");
 
 const app = express();
-
+app.use(express.json());
 app.use(bodyParser.json());
 app.use("/uploads/images", express.static(path.join("uploads", "images")));
 
