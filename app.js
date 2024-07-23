@@ -10,7 +10,7 @@ const AppError = require("./utils/appError");
 const usersRoutes = require("./routes/users-routes");
 
 const app = express();
-app.use(express.json());
+// app.use(express.json());
 app.use(bodyParser.json());
 app.use("/uploads/images", express.static(path.join("uploads", "images")));
 
@@ -45,6 +45,6 @@ const DB = process.env.DATABASE.replace("<PASSWORD>", process.env.MONGODB_PASSWO
 mongoose.connect(DB).then(() => {
   console.log("DB connection successful!");
 });
-app.listen(5000, () => {
+app.listen(process.env.PORT || 5000, () => {
   console.log("Server is running on port 5000");
 });
